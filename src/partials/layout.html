@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Webdesign</title>
+    <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <!--[if lte IE 9]>
+    <div class="browserupgrade"><p>You are using an <strong>outdated</strong> browser.<br> Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p></div>
+    <![endif]-->
+
+    {% block content %} {% endblock %}
+
+    <!--build:js js/bundle.js -->
+    <script type="text/javascript" src="../node_modules/jquery/dist/jquery.js"></script>
+    <script type="text/javascript" src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    <!-- endbuild -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>

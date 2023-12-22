@@ -1,0 +1,23 @@
+.cta-section {
+  padding: 50px 0;
+}
+@media (min-width: $sm) {
+  .cta-section {
+    padding: 60px 0;
+  }
+}
+@media (min-width: $md) {
+  .cta-section {
+    padding: 70px 0;
+  }
+}
+@media (min-width: $lg) {
+  .cta-section {
+    padding: 80px 0;
+  }
+}
+@media (min-width: $xl) {
+  .cta-section {
+    padding: 90px 0;
+  }
+}

@@ -1,0 +1,87 @@
+section {
+  padding: 25px 0;
+  .section-title {
+    margin: 0;
+    padding: 0 0 50px 0;
+    position: relative;
+    &:after {
+      content: '';
+      width: 40px;
+      height: 2px;
+      background-color: #343a40;
+      position: absolute;
+      left: 0;
+      top: calc(100% - 25px);
+    }
+    &.no-decoration {
+      padding: 0 0 25px 0;
+      &:after {
+        content: none;
+      }
+    }
+  }
+}
+
+@media (min-width: $sm) {
+  section {
+    padding: 35px 0;
+    .section-title {
+      margin: 0;
+      padding: 0 0 70px 0;
+      &:after {
+        top: calc(100% - 35px);
+      }
+      &.no-decoration {
+        padding: 0 0 35px 0;
+      }
+    }
+  }
+}
+
+@media (min-width: $md) {
+  section {
+    padding: 40px 0;
+    .section-title {
+      margin: 0;
+      padding: 0 0 40px 0;
+      &:after {
+        top: calc(100% - 20px);
+      }
+      &.no-decoration {
+        padding: 0 0 40px 0;
+      }
+    }
+  }
+}
+
+@media (min-width: $lg) {
+  section {
+    padding: 45px 0;
+    .section-title {
+      margin: 0;
+      padding: 0 0 90px 0;
+      &:after {
+        top: calc(100% - 45px);
+      }
+      &.no-decoration {
+        padding: 0 0 45px 0;
+      }
+    }
+  }
+}
+
+@media (min-width: $xl) {
+  section {
+    padding: 50px 0;
+    .section-title {
+      margin: 0;
+      padding: 0 0 50px 0;
+      &:after {
+        top: calc(100% - 25px);
+      }
+      &.no-decoration {
+        padding: 0 0 25px 0;
+      }
+    }
+  }
+}

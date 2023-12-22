@@ -1,0 +1,30 @@
+// Variables
+
+// Breakpoints
+$sm: 576px;
+$md: 768px;
+$lg: 992px;
+$xl: 1200px;
+$xxl: 1400px;
+
+$breakpoints: (
+  sm: $sm,
+  md: $md,
+  lg: $lg,
+  xl: $xl,
+  xxl: $xxl,
+);
+
+// Spacing
+$spacer: 15px !default;
+$spacing-sizes: (
+  0: 0,
+  1: $spacer,
+  2: (
+    $spacer * 2,
+  ),
+  3: (
+    $spacer * 3,
+  ),
+) !default;
+$spacing-important: true !default;

@@ -1,0 +1,84 @@
+// Spacing
+
+@each $breakpoint, $units in $breakpoints {
+  @include min-screen($units) {
+
+    $size: 'auto';
+
+    .mx__#{$breakpoint}--#{$size} {
+      @include mx($size);
+    }
+
+    .ml__#{$breakpoint}--#{$size} {
+      @include ml($size);
+    }
+
+    .mr__#{$breakpoint}--#{$size} {
+      @include mr($size);
+    }
+
+    @each $size, $units in $spacing-sizes {
+
+      // === Margin ===
+
+      .m__#{$breakpoint}--#{$size} {
+        @include m($size);
+      }
+
+      .mx__#{$breakpoint}--#{$size} {
+        @include mx($size);
+      }
+
+      .my__#{$breakpoint}--#{$size} {
+        @include my($size);
+      }
+
+      .ml__#{$breakpoint}--#{$size} {
+        @include ml($size);
+      }
+
+      .mt__#{$breakpoint}--#{$size} {
+        @include mt($size);
+      }
+
+      .mr__#{$breakpoint}--#{$size} {
+        @include mr($size);
+      }
+
+      .mb__#{$breakpoint}--#{$size} {
+        @include mb($size);
+      }
+
+      // === Padding ===
+
+      .p__#{$breakpoint}--#{$size} {
+        @include p($size);
+      }
+
+      .px__#{$breakpoint}--#{$size} {
+        @include px($size);
+      }
+
+      .py__#{$breakpoint}--#{$size} {
+        @include py($size);
+      }
+
+      .pl__#{$breakpoint}--#{$size} {
+        @include pl($size);
+      }
+
+      .pt__#{$breakpoint}--#{$size} {
+        @include pt($size);
+      }
+
+      .pr__#{$breakpoint}--#{$size} {
+        @include pr($size);
+      }
+
+      .pb__#{$breakpoint}--#{$size} {
+        @include pb($size);
+      }
+
+    }
+  }
+}

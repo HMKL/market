@@ -1,0 +1,21 @@
+// Base styles include setting heading sizes, default link styles,
+// default font styles, and body backgrounds.
+// There should be no need to use !important in a Base style.
+
+.browserupgrade {
+  display: table;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  color: #222;
+  text-align: center;
+  z-index: 1000000;
+  p {
+    display: table-cell;
+    vertical-align: middle;
+    margin: 100px 0;
+  }
+}
