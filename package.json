@@ -26,5 +26,22 @@
     "bootstrap": "latest",
     "jquery": "latest",
     "sass-mediaqueries": "latest"
-  }
+  },
+  "name": "market",
+  "version": "1.0.0",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HMKL/market.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HMKL/market/issues"
+  },
+  "homepage": "https://github.com/HMKL/market#readme",
+  "description": ""
 }
