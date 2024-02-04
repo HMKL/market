@@ -6,18 +6,31 @@
       font-family: "Poppins", sans-serif;
     }
     .hero-image {
-      background: url(../images/main-header.webp);
-      background-repeat: no-repeat;
-      background-size: cover;
-      aspect-ratio: 192/11;
+      background: #212c7c;
+      @media (min-width: $lg) {
+        background: url(../images/main-header.webp);
+        background-repeat: no-repeat;
+        background-size: cover;
+        aspect-ratio: 192/11;
+      }
+      .text-mobile {
+        display: block;
+        @media (min-width: $lg) {
+          display: none;
+        }
+      }
       .intro-text {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        width: 50%;
-        height: 100%;
-        align-items: center;
-        margin: 0 auto;
+        display: none;
+        @media (min-width: $lg) {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          width: 50%;
+          height: 100%;
+          align-items: center;
+          margin: 0 auto;
+        }
+
         .inner-text {
           width: calc(50% - 30px);
           h2 {
