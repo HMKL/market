@@ -56,22 +56,52 @@
       height: 100%;
       .swiper-wrapper {
         .swiper-slide {
-          .inner-img {
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-position: center;
+          a {
             position: relative;
-            &:before {
-              content: "";
-              display: block;
-              padding: 100% 0 0 0;
-              @media (min-width: $md) {
-                padding: 36.7% 0 0 0;
+            .inner-img {
+              background-repeat: no-repeat;
+              background-size: cover;
+              background-position: center;
+              position: relative;
+              transition: all 0.5s ease-in-out;
+              overflow: hidden;
+              &:before {
+                content: "";
+                display: block;
+                padding: 100% 0 0 0;
+                @media (min-width: $md) {
+                  padding: 36.7% 0 0 0;
+                }
+              }
+              &:hover {
+                transform: scale(1.02);
+                transition: all 0.5s ease-in-out;
+              }
+              .arrows {
+                position: absolute;
+                bottom: 0;
               }
             }
             .arrows {
               position: absolute;
-              bottom: 0;
+              top: 0;
+              right: 0;
+              width: 30%;
+              .arr {
+                .swiper-button-next,
+                .swiper-button-prev {
+                  margin: 0;
+                  &:after {
+                    content: none;
+                  }
+                  &.right,
+                  &.left {
+                    i {
+                      color: #212c7c;
+                    }
+                  }
+                }
+              }
             }
           }
         }

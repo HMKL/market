@@ -8368,22 +8368,58 @@ section .section-title.no-decoration:after {
   height: 100%;
 }
 
-.market-header .wrap .swiper .swiper-wrapper .swiper-slide .inner-img {
+.market-header .wrap .swiper .swiper-wrapper .swiper-slide a {
+  position: relative;
+}
+
+.market-header .wrap .swiper .swiper-wrapper .swiper-slide a .inner-img {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   position: relative;
+  transition: all 0.5s ease-in-out;
+  overflow: hidden;
 }
 
-.market-header .wrap .swiper .swiper-wrapper .swiper-slide .inner-img:before {
+.market-header .wrap .swiper .swiper-wrapper .swiper-slide a .inner-img:before {
   content: "";
   display: block;
   padding: 100% 0 0 0;
 }
 
-.market-header .wrap .swiper .swiper-wrapper .swiper-slide .inner-img .arrows {
+.market-header .wrap .swiper .swiper-wrapper .swiper-slide a .inner-img:hover {
+  -webkit-transform: scale(1.02);
+  transform: scale(1.02);
+  transition: all 0.5s ease-in-out;
+}
+
+.market-header .wrap .swiper .swiper-wrapper .swiper-slide a .inner-img .arrows {
   position: absolute;
   bottom: 0;
+}
+
+.market-header .wrap .swiper .swiper-wrapper .swiper-slide a .arrows {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 30%;
+}
+
+.market-header .wrap .swiper .swiper-wrapper .swiper-slide a .arrows .arr .swiper-button-next,
+.market-header .wrap .swiper .swiper-wrapper .swiper-slide a .arrows .arr .swiper-button-prev {
+  margin: 0;
+}
+
+.market-header .wrap .swiper .swiper-wrapper .swiper-slide a .arrows .arr .swiper-button-next:after,
+.market-header .wrap .swiper .swiper-wrapper .swiper-slide a .arrows .arr .swiper-button-prev:after {
+  content: none;
+}
+
+.market-header .wrap .swiper .swiper-wrapper .swiper-slide a .arrows .arr .swiper-button-next.right i,
+.market-header .wrap .swiper .swiper-wrapper .swiper-slide a .arrows .arr .swiper-button-next.left i,
+.market-header .wrap .swiper .swiper-wrapper .swiper-slide a .arrows .arr .swiper-button-prev.right i,
+.market-header .wrap .swiper .swiper-wrapper .swiper-slide a .arrows .arr .swiper-button-prev.left i {
+  color: #212c7c;
 }
 
 .market-header .autoplay-progress {
@@ -11354,7 +11390,7 @@ section .section-title.no-decoration:after {
     background: none;
   }
 
-  .market-header .wrap .swiper .swiper-wrapper .swiper-slide .inner-img:before {
+  .market-header .wrap .swiper .swiper-wrapper .swiper-slide a .inner-img:before {
     padding: 36.7% 0 0 0;
   }
 }
