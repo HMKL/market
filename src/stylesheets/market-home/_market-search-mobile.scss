@@ -1,0 +1,58 @@
+.market-search-mobile {
+  .search {
+    align-items: center;
+    width: 100%;
+    display: flex;
+    position: relative;
+    @media (min-width: $md) {
+      display: none;
+    }
+    .icon {
+      background: #f6f6f6;
+      width: 40px;
+      height: 38px;
+      padding: 1px 6px;
+      position: relative;
+
+      @media (min-width: $md) {
+        background: none;
+      }
+      i {
+        font-size: 14px;
+        color: #757575;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+    input {
+      border: none;
+      width: 100%;
+      &::placeholder {
+        color: rgba(0, 0, 0, 0.6);
+        font-size: 13px;
+        font-family: "Poppins", sans-serif;
+      }
+      &:focus-visible {
+        outline: 0;
+      }
+    }
+    &:after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 1px;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.42);
+      bottom: 0;
+    }
+    &:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      background: #f1f1f1;
+      width: 100%;
+      height: 1px;
+    }
+  }
+}

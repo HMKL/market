@@ -14,7 +14,6 @@
     })
   }
   addClassHamburger();
-  console.log(getSideBar)
 })();
 
 

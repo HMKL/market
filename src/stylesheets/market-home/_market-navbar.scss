@@ -84,13 +84,12 @@
         .search {
           align-items: center;
           width: 100%;
-          display: flex;
-          position: absolute;
-          top: 55px;
+          display: none;
           left: 0;
           @media (min-width: $md) {
             position: relative;
             top: 0;
+            display: flex;
           }
           .icon {
             background: #f6f6f6;
