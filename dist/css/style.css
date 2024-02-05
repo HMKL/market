@@ -8335,6 +8335,27 @@ section .section-title.no-decoration:after {
 
 .market-header .wrap .hero-image .text-mobile {
   display: block;
+  text-align: center;
+  padding: 14px 15px;
+}
+
+.market-header .wrap .hero-image .text-mobile h2,
+.market-header .wrap .hero-image .text-mobile .h2 {
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: -0.13px;
+  line-height: 18px;
+  margin: 0 0 4px;
+  color: #fff;
+}
+
+.market-header .wrap .hero-image .text-mobile p {
+  font-size: 12px;
+  letter-spacing: -0.1px;
+  line-height: 18px;
+  margin: 0 auto;
+  max-width: 246px;
+  color: #fff;
 }
 
 .market-header .wrap .hero-image .intro-text {
@@ -8400,9 +8421,12 @@ section .section-title.no-decoration:after {
 
 .market-header .wrap .swiper .swiper-wrapper .swiper-slide a .arrows {
   position: absolute;
-  top: 0;
-  right: 0;
+  top: 50%;
+  left: 50%;
+  bottom: 0;
   width: 30%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
 
 .market-header .wrap .swiper .swiper-wrapper .swiper-slide a .arrows .arr .swiper-button-next,
@@ -12981,7 +13005,7 @@ section .section-title.no-decoration:after {
     -webkit-justify-content: space-between;
     -ms-flex-pack: justify;
     justify-content: space-between;
-    width: 50%;
+    width: 70%;
     height: 100%;
     -webkit-align-items: center;
     -ms-flex-align: center;

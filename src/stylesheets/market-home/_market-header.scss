@@ -15,8 +15,26 @@
       }
       .text-mobile {
         display: block;
+        text-align: center;
+        padding: 14px 15px;
         @media (min-width: $lg) {
           display: none;
+        }
+        h2 {
+          font-size: 16px;
+          font-weight: 500;
+          letter-spacing: -0.13px;
+          line-height: 18px;
+          margin: 0 0 4px;
+          color: #fff;
+        }
+        p {
+          font-size: 12px;
+          letter-spacing: -0.1px;
+          line-height: 18px;
+          margin: 0 auto;
+          max-width: 246px;
+          color: #fff;
         }
       }
       .intro-text {
@@ -25,7 +43,7 @@
           display: flex;
           flex-direction: row;
           justify-content: space-between;
-          width: 50%;
+          width: 70%;
           height: 100%;
           align-items: center;
           margin: 0 auto;
@@ -84,9 +102,11 @@
             }
             .arrows {
               position: absolute;
-              top: 0;
-              right: 0;
+              top: 50%;
+              left: 50%;
+              bottom: 0;
               width: 30%;
+              transform: translate(-50%, -50%);
               .arr {
                 .swiper-button-next,
                 .swiper-button-prev {
