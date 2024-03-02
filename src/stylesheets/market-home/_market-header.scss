@@ -95,67 +95,95 @@
                 transform: scale(1.02);
                 transition: all 0.5s ease-in-out;
               }
-              .arrows {
-                position: absolute;
-                bottom: 0;
-              }
-            }
-            .arrows {
-              position: absolute;
-              top: 50%;
-              left: 50%;
-              bottom: 0;
-              width: 30%;
-              transform: translate(-50%, -50%);
-              .arr {
-                .swiper-button-next,
-                .swiper-button-prev {
-                  margin: 0;
-                  &:after {
-                    content: none;
-                  }
-                  &.right,
-                  &.left {
-                    i {
-                      color: #212c7c;
-                    }
-                  }
-                }
-              }
             }
           }
         }
       }
     }
-  }
+    .arrows {
+      position: relative;
+      width: 100%;
+      height: 50px;
+      margin: 0 auto;
+      background: #c7c8cc;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      .main-arrows {
+        width: 50%;
+        position: relative;
+        background: #e3e1d9;
+        height: 100%;
+        margin: 0 auto;
 
-  .autoplay-progress {
-    position: absolute;
-    right: 16px;
-    bottom: 16px;
-    z-index: 10;
-    width: 48px;
-    height: 48px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    color: var(--swiper-theme-color);
-  }
+        &:after {
+          content: "";
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          background: #c9ccd5;
+          opacity: 0.6;
+        }
 
-  .autoplay-progress svg {
-    --progress: 0;
-    position: absolute;
-    left: 0;
-    top: 0px;
-    z-index: 10;
-    width: 100%;
-    height: 100%;
-    stroke-width: 4px;
-    stroke: var(--swiper-theme-color);
-    fill: none;
-    stroke-dashoffset: calc(125.6 * (1 - var(--progress)));
-    stroke-dasharray: 125.6;
-    transform: rotate(-90deg);
+        .arr {
+          .swiper-button-next,
+          .swiper-button-prev {
+            position: relative;
+            &:after {
+              content: none;
+            }
+            &.right,
+            &.left {
+              i {
+                color: #212c7c;
+              }
+            }
+          }
+        }
+        .autoplay-progress {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          z-index: 10;
+          width: 48px;
+          height: 48px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-weight: bold;
+          color: var(--swiper-theme-color);
+          svg {
+            --progress: 0;
+            position: absolute;
+            left: 0;
+            top: 0px;
+            z-index: 10;
+            width: 100%;
+            height: 100%;
+            stroke-width: 4px;
+            stroke: var(--swiper-theme-color);
+            fill: none;
+            stroke-dashoffset: calc(125.6 * (1 - var(--progress)));
+            stroke-dasharray: 125.6;
+            transform: rotate(-90deg);
+          }
+        }
+      }
+      .arr-left,
+      .arr-right {
+        background: #212c7c;
+        width: 25%;
+        height: 2px;
+        position: relative;
+        top: 0;
+        margin: 0;
+        right: 0;
+        left: 0;
+        &.swiper-button-disabled {
+          left: 0;
+        }
+      }
+    }
   }
 }

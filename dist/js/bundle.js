@@ -10716,8 +10716,8 @@ return jQuery;
 } );
 
 /*!
-  * Bootstrap v5.3.2 (https://getbootstrap.com/)
-  * Copyright 2011-2023 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
+  * Bootstrap v5.3.3 (https://getbootstrap.com/)
+  * Copyright 2011-2024 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
   */
 (function (global, factory) {
@@ -10927,7 +10927,6 @@ return jQuery;
   const reflow = element => {
     element.offsetHeight; // eslint-disable-line no-unused-expressions
   };
-
   const getjQuery = () => {
     if (window.jQuery && !document.body.hasAttribute('data-bs-no-jquery')) {
       return window.jQuery;
@@ -11365,7 +11364,7 @@ return jQuery;
    * Constants
    */
 
-  const VERSION = '5.3.2';
+  const VERSION = '5.3.3';
 
   /**
    * Class definition
@@ -11446,9 +11445,9 @@ return jQuery;
       if (hrefAttribute.includes('#') && !hrefAttribute.startsWith('#')) {
         hrefAttribute = `#${hrefAttribute.split('#')[1]}`;
       }
-      selector = hrefAttribute && hrefAttribute !== '#' ? parseSelector(hrefAttribute.trim()) : null;
+      selector = hrefAttribute && hrefAttribute !== '#' ? hrefAttribute.trim() : null;
     }
-    return selector;
+    return selector ? selector.split(',').map(sel => parseSelector(sel)).join(',') : null;
   };
   const SelectorEngine = {
     find(selector, element = document.documentElement) {
@@ -14633,7 +14632,6 @@ return jQuery;
     // if false, we use the backdrop helper without adding any element to the dom
     rootElement: 'body' // give the choice to place backdrop under different elements
   };
-
   const DefaultType$8 = {
     className: 'string',
     clickCallback: '(function|null)',
@@ -14758,7 +14756,6 @@ return jQuery;
     autofocus: true,
     trapElement: null // The element to trap focus inside of
   };
-
   const DefaultType$7 = {
     autofocus: 'boolean',
     trapElement: 'element'
@@ -15485,7 +15482,10 @@ return jQuery;
     br: [],
     col: [],
     code: [],
+    dd: [],
     div: [],
+    dl: [],
+    dt: [],
     em: [],
     hr: [],
     h1: [],
