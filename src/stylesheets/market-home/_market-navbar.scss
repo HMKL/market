@@ -1,7 +1,9 @@
 .market-navbar {
   header {
+    position: relative;
     p {
       margin: 0;
+      font-family: "Poppins", sans-serif;
     }
     .main-heading {
       width: 100%;
@@ -12,7 +14,6 @@
       flex-direction: row;
       justify-content: space-between;
       padding: 5px 15px;
-      position: relative;
       @media (min-width: $lg) {
         max-width: 1920px;
         padding: 5px 30px;
@@ -31,6 +32,14 @@
           margin: 0;
           li {
             padding: 10px 14px;
+            // &:hover {
+            //   .mega-menu {
+            //     opacity: 1;
+            //     transition: all 0.3s ease-in-out;
+            //     visibility: visible;
+            //     transform: scaleY(1);
+            //   }
+            // }
             a {
               font-family: "Poppins", sans-serif;
               color: #000;
@@ -59,6 +68,69 @@
               &:hover {
                 opacity: 0.7;
                 transition: all 0.2s ease-in-out;
+              }
+            }
+            .mega-menu {
+              position: absolute;
+              width: 100%;
+              height: 250px;
+              left: 0;
+              top: 55px;
+              background: #fff;
+              opacity: 1;
+              visibility: visible;
+              transition: all 0.3s ease-in-out;
+              // transform: scaleY(0);
+              // transform-origin: top;
+              z-index: 111;
+              padding: 0 0 10px 0;
+              .inside {
+                width: calc(1920px - 84px);
+                margin: 0 auto;
+                background: #fff;
+                padding: 20px 0;
+                height: 100%;
+                border-radius: 6px;
+                position: relative;
+                display: flex;
+                flex-direction: row;
+                &:after {
+                  content: "";
+                  position: absolute;
+                  top: 0;
+                  left: 0;
+                  height: 100%;
+                  width: 1px;
+                  background: #ddd;
+                }
+                p {
+                  font-size: 14px;
+                  text-transform: capitalize;
+                  color: #000;
+                  font-weight: bold;
+                  letter-spacing: 0.5px;
+                }
+                .general-items {
+                  display: flex;
+                  justify-content: space-between;
+                  flex-direction: row;
+                  width: 100%;
+                  .items {
+                    background: #fff;
+                    &:nth-child(1) {
+                      width: 67%;
+                      display: flex;
+                      justify-content: space-between;
+                      .small {
+                        width: calc(25% - 10px);
+                      }
+                    }
+                    &:nth-child(2) {
+                      width: 33.3%;
+                      background: #ddd;
+                    }
+                  }
+                }
               }
             }
           }
@@ -198,6 +270,28 @@
             height: 50%;
             background: #757575;
           }
+        }
+      }
+      .overlay-opacity {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        background: #d8d8d8;
+        left: 0;
+        right: 0;
+        opacity: 0.4;
+        top: 55px;
+        z-index: 2;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.2s ease-in-out;
+        // transform: scaleY(0);
+        // transform-origin: top;
+        &.show {
+          opacity: 0.5;
+          transition: all 0.2s ease-in-out;
+          visibility: visible;
+          // transform: scaleY(1);
         }
       }
     }
