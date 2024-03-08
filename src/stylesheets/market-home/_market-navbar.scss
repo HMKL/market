@@ -73,7 +73,6 @@
             .mega-menu {
               position: absolute;
               width: 100%;
-              height: 250px;
               left: 0;
               top: 55px;
               background: #fff;
@@ -85,7 +84,7 @@
               z-index: 111;
               padding: 0 0 10px 0;
               .inside {
-                width: calc(1920px - 84px);
+                width: calc(100% - 84px);
                 margin: 0 auto;
                 background: #fff;
                 padding: 20px 0;
@@ -94,27 +93,16 @@
                 position: relative;
                 display: flex;
                 flex-direction: row;
-                &:after {
-                  content: "";
-                  position: absolute;
-                  top: 0;
-                  left: 0;
-                  height: 100%;
-                  width: 1px;
-                  background: #ddd;
+                @media (min-width: $lg) {
+                  max-width: 1920px - 84px;
                 }
-                p {
-                  font-size: 14px;
-                  text-transform: capitalize;
-                  color: #000;
-                  font-weight: bold;
-                  letter-spacing: 0.5px;
-                }
+
                 .general-items {
                   display: flex;
                   justify-content: space-between;
                   flex-direction: row;
                   width: 100%;
+                  position: relative;
                   .items {
                     background: #fff;
                     &:nth-child(1) {
@@ -123,11 +111,45 @@
                       justify-content: space-between;
                       .small {
                         width: calc(25% - 10px);
+                        p {
+                          font-size: 14px;
+                          text-transform: capitalize;
+                          color: #000;
+                          font-weight: bold;
+                          letter-spacing: 0.5px;
+                          position: relative;
+                          height: 30px;
+                          &:before {
+                            content: "";
+                            position: absolute;
+                            bottom: 0;
+                            height: 1px;
+                            width: 100%;
+                            background: #ddd;
+                          }
+                        }
                       }
                     }
                     &:nth-child(2) {
                       width: 33.3%;
-                      background: #ddd;
+                      padding: 0 0 0 10px;
+                      p {
+                        font-size: 14px;
+                        text-transform: capitalize;
+                        color: #000;
+                        font-weight: bold;
+                        letter-spacing: 0.5px;
+                        position: relative;
+                        height: 30px;
+                        &:before {
+                          content: "";
+                          position: absolute;
+                          bottom: 0;
+                          height: 1px;
+                          width: 100%;
+                          background: #ddd;
+                        }
+                      }
                     }
                   }
                 }
