@@ -8029,6 +8029,14 @@ section .section-title.no-decoration:after {
   padding: 10px 14px;
 }
 
+.market-navbar header .main-heading .header-left ul li:hover .mega-menu {
+  opacity: 1;
+  transition: all 0.2s ease-in-out;
+  visibility: visible;
+  -webkit-transform: scaleY(1);
+  transform: scaleY(1);
+}
+
 .market-navbar header .main-heading .header-left ul li a {
   font-family: "Poppins", sans-serif;
   color: #000;
@@ -8068,7 +8076,11 @@ section .section-title.no-decoration:after {
   background: #fff;
   opacity: 1;
   visibility: visible;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  -webkit-transform: scaleY(0);
+  transform: scaleY(0);
+  -webkit-transform-origin: top;
+  transform-origin: top;
   z-index: 111;
   padding: 0 0 10px 0;
 }
@@ -8138,6 +8150,27 @@ section .section-title.no-decoration:after {
   height: 1px;
   width: 100%;
   background: #ddd;
+}
+
+.market-navbar header .main-heading .header-left ul li .mega-menu .inside .general-items .items:nth-child(1) .small ul {
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.market-navbar header .main-heading .header-left ul li .mega-menu .inside .general-items .items:nth-child(1) .small ul li {
+  padding: 4px 0;
+}
+
+.market-navbar header .main-heading .header-left ul li .mega-menu .inside .general-items .items:nth-child(1) .small ul li a {
+  text-transform: capitalize;
+  letter-spacing: 0.5px;
+}
+
+.market-navbar header .main-heading .header-left ul li .mega-menu .inside .general-items .items:nth-child(1) .small ul li a.small-title {
+  display: inline-block;
+  font-weight: 600;
+  padding: 5px 0 0 0;
 }
 
 .market-navbar header .main-heading .header-left ul li .mega-menu .inside .general-items .items:nth-child(2) {
@@ -8531,7 +8564,7 @@ section .section-title.no-decoration:after {
 .market-header .wrap .arrows {
   position: relative;
   width: 100%;
-  height: 50px;
+  height: 20px;
   margin: 0 auto;
   background: #c7c8cc;
   display: -webkit-flex;
@@ -8546,7 +8579,7 @@ section .section-title.no-decoration:after {
 }
 
 .market-header .wrap .arrows .main-arrows {
-  width: 50%;
+  width: 5%;
   position: relative;
   background: #e3e1d9;
   height: 100%;
@@ -8559,7 +8592,6 @@ section .section-title.no-decoration:after {
   width: 100%;
   height: 100%;
   background: #c9ccd5;
-  opacity: 0.6;
 }
 
 .market-header .wrap .arrows .main-arrows .arr .swiper-button-next,
@@ -8598,7 +8630,7 @@ section .section-title.no-decoration:after {
   -ms-flex-pack: center;
   justify-content: center;
   font-weight: bold;
-  color: red;
+  color: #26307a;
 }
 
 .market-header .wrap .arrows .main-arrows .autoplay-progress svg {
@@ -8609,8 +8641,6 @@ section .section-title.no-decoration:after {
   z-index: 10;
   width: 100%;
   height: 100%;
-  stroke-width: 4px;
-  stroke: green;
   fill: none;
   stroke-dashoffset: calc(125.6 * (1 - var(--progress)));
   stroke-dasharray: 125.6;
@@ -8620,9 +8650,9 @@ section .section-title.no-decoration:after {
 
 .market-header .wrap .arrows .arr-left,
 .market-header .wrap .arrows .arr-right {
-  background: #212c7c;
-  width: 25%;
-  height: 2px;
+  background: #26307a;
+  width: 47.5%;
+  height: 100%;
   position: relative;
   top: 0;
   margin: 0;
@@ -8630,9 +8660,53 @@ section .section-title.no-decoration:after {
   left: 0;
 }
 
+.market-header .wrap .arrows .arr-left p,
+.market-header .wrap .arrows .arr-right p {
+  color: #fff;
+}
+
 .market-header .wrap .arrows .arr-left.swiper-button-disabled,
 .market-header .wrap .arrows .arr-right.swiper-button-disabled {
-  left: 0;
+  opacity: 0.7;
+}
+
+.market-header .wrap .arrows .arr-left:after,
+.market-header .wrap .arrows .arr-right:after {
+  content: none;
+}
+
+.market-sale {
+  padding: 10px 0 0 0;
+}
+
+.market-sale p {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+}
+
+.market-sale .wrap {
+  max-width: 1920px;
+  margin: 0 auto;
+}
+
+.market-sale .wrap .inner-content {
+  max-width: 100%;
+  width: calc(100% - 30px);
+  margin: 0 auto;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.market-sale .wrap .inner-content .inner-items {
+  width: calc(33.33% - 12px);
+  background: blue;
 }
 
 @media (min-width: 576px) {

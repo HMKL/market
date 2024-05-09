@@ -1,0 +1,23 @@
+.market-sale {
+  padding: 10px 0 0 0;
+  p {
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+  }
+  .wrap {
+    max-width: 1920px;
+    margin: 0 auto;
+    .inner-content {
+      max-width: 100%;
+      width: calc(100% - 30px);
+      margin: 0 auto;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      .inner-items {
+        width: calc(33.33% - 12px);
+        background: blue;
+      }
+    }
+  }
+}
