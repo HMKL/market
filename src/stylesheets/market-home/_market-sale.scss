@@ -12,11 +12,42 @@
       width: calc(100% - 30px);
       margin: 0 auto;
       display: flex;
-      flex-direction: row;
+      flex-direction: column;
       justify-content: space-between;
+      @media (min-width: $md) {
+        flex-direction: row;
+      }
       .inner-items {
-        width: calc(33.33% - 12px);
-        background: blue;
+        width: 100%;
+        margin: 0 0 10px 0;
+        @media (min-width: $md) {
+          width: calc(33.33% - 12px);
+          margin: 0;
+        }
+        a {
+          .img-redirect {
+            width: 100%;
+            height: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
+            &:before {
+              content: "";
+              padding: 468px 0 0 0;
+              display: block;
+              @media (min-width: $md) {
+                padding: 309px 0 0 0;
+              }
+              @media (min-width: $lg) {
+                padding: 416px 0 0 0;
+              }
+              @media (min-width: $xl) {
+                padding: 700px 0 0 0;
+              }
+            }
+          }
+        }
       }
     }
   }

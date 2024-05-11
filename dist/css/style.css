@@ -8696,17 +8696,32 @@ section .section-title.no-decoration:after {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   -webkit-justify-content: space-between;
   -ms-flex-pack: justify;
   justify-content: space-between;
 }
 
 .market-sale .wrap .inner-content .inner-items {
-  width: calc(33.33% - 12px);
-  background: blue;
+  width: 100%;
+  margin: 0 0 10px 0;
+}
+
+.market-sale .wrap .inner-content .inner-items a .img-redirect {
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.market-sale .wrap .inner-content .inner-items a .img-redirect:before {
+  content: "";
+  padding: 468px 0 0 0;
+  display: block;
 }
 
 @media (min-width: 576px) {
@@ -11643,6 +11658,21 @@ section .section-title.no-decoration:after {
   .market-header .wrap .swiper .swiper-wrapper .swiper-slide a .inner-img:before {
     padding: 36.7% 0 0 0;
   }
+
+  .market-sale .wrap .inner-content {
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+  }
+
+  .market-sale .wrap .inner-content .inner-items {
+    width: calc(33.33% - 12px);
+    margin: 0;
+  }
+
+  .market-sale .wrap .inner-content .inner-items a .img-redirect:before {
+    padding: 309px 0 0 0;
+  }
 }
 
 @media only screen and (min-width: 768px) {
@@ -13241,6 +13271,10 @@ section .section-title.no-decoration:after {
     -ms-flex-align: center;
     align-items: center;
     margin: 0 auto;
+  }
+
+  .market-sale .wrap .inner-content .inner-items a .img-redirect:before {
+    padding: 416px 0 0 0;
   }
 }
 
@@ -14874,6 +14908,10 @@ section .section-title.no-decoration:after {
 
   .market-navbar header .main-heading .main-logo a {
     width: 180px;
+  }
+
+  .market-sale .wrap .inner-content .inner-items a .img-redirect:before {
+    padding: 700px 0 0 0;
   }
 }
 
