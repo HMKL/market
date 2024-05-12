@@ -1,5 +1,6 @@
 
 
+
 /* eslint-disable linebreak-style */
 (function () {
   'use strict';
@@ -8,11 +9,17 @@
 
 
   const getHamburger = document.querySelector('.hamburger-menu');
+  const getBody = document.querySelector('body');
   const getSideBar = document.querySelector('.sidebar');
   const getShadow = document.querySelector('.overlay-opacity');
   const getUl = document.querySelectorAll('.header-left > ul > li');
+
+
+
+
   const addClassHamburger = () => {
     getHamburger.addEventListener('click', () => {
+      getBody.classList.toggle('over');
       getHamburger.classList.toggle('clicked');
       getSideBar.classList.toggle('show-sidebar')
     })

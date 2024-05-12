@@ -1,6 +1,7 @@
 .market-sale {
   padding: 10px 0 0 0;
-  p {
+  p,
+  h4 {
     margin: 0;
     font-family: "Poppins", sans-serif;
   }
@@ -9,7 +10,7 @@
     margin: 0 auto;
     .inner-content {
       max-width: 100%;
-      width: calc(100% - 30px);
+      width: 100%;
       margin: 0 auto;
       display: flex;
       flex-direction: column;
@@ -21,23 +22,27 @@
         width: 100%;
         margin: 0 0 10px 0;
         @media (min-width: $md) {
-          width: calc(33.33% - 12px);
+          width: calc(33% - 4px);
           margin: 0;
         }
         a {
+          text-decoration: none;
+          display: flex;
+          flex-direction: column;
+          overflow: hidden;
           .img-redirect {
-            width: 100%;
-            height: 100%;
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
             position: relative;
+            transition: 0.3s all ease-in-out;
+            overflow: hidden;
             &:before {
               content: "";
               padding: 468px 0 0 0;
               display: block;
               @media (min-width: $md) {
-                padding: 309px 0 0 0;
+                padding: 325px 0 0 0;
               }
               @media (min-width: $lg) {
                 padding: 416px 0 0 0;
@@ -46,6 +51,42 @@
                 padding: 700px 0 0 0;
               }
             }
+          }
+
+          .description {
+            padding: 30px 0;
+            text-align: center;
+            background: #fff;
+            z-index: 1;
+            h4 {
+              color: #000;
+              font-size: 21px;
+              padding: 0 0 12px 0;
+            }
+            p {
+              color: #000;
+              font-size: 14px;
+              position: relative;
+              display: inline-block;
+              &:after {
+                content: "";
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                height: 1px;
+                width: 0;
+                transition: 0.2s all ease-in-out;
+              }
+            }
+          }
+          &:hover p:after {
+            width: 100%;
+            background: #000;
+            transition: 0.2s all ease-in-out;
+          }
+          &:hover .img-redirect {
+            transform: scale(1.06);
+            transition: all 0.5s ease-in-out;
           }
         }
       }

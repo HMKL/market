@@ -8675,11 +8675,17 @@ section .section-title.no-decoration:after {
   content: none;
 }
 
+.over {
+  overflow: hidden;
+}
+
 .market-sale {
   padding: 10px 0 0 0;
 }
 
-.market-sale p {
+.market-sale p,
+.market-sale h4,
+.market-sale .h4 {
   margin: 0;
   font-family: "Poppins", sans-serif;
 }
@@ -8691,7 +8697,7 @@ section .section-title.no-decoration:after {
 
 .market-sale .wrap .inner-content {
   max-width: 100%;
-  width: calc(100% - 30px);
+  width: 100%;
   margin: 0 auto;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -8709,19 +8715,73 @@ section .section-title.no-decoration:after {
   margin: 0 0 10px 0;
 }
 
+.market-sale .wrap .inner-content .inner-items a {
+  text-decoration: none;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  overflow: hidden;
+}
+
 .market-sale .wrap .inner-content .inner-items a .img-redirect {
-  width: 100%;
-  height: 100%;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
+  transition: 0.3s all ease-in-out;
+  overflow: hidden;
 }
 
 .market-sale .wrap .inner-content .inner-items a .img-redirect:before {
   content: "";
   padding: 468px 0 0 0;
   display: block;
+}
+
+.market-sale .wrap .inner-content .inner-items a .description {
+  padding: 30px 0;
+  text-align: center;
+  background: #fff;
+  z-index: 1;
+}
+
+.market-sale .wrap .inner-content .inner-items a .description h4,
+.market-sale .wrap .inner-content .inner-items a .description .h4 {
+  color: #000;
+  font-size: 21px;
+  padding: 0 0 12px 0;
+}
+
+.market-sale .wrap .inner-content .inner-items a .description p {
+  color: #000;
+  font-size: 14px;
+  position: relative;
+  display: inline-block;
+}
+
+.market-sale .wrap .inner-content .inner-items a .description p:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 1px;
+  width: 0;
+  transition: 0.2s all ease-in-out;
+}
+
+.market-sale .wrap .inner-content .inner-items a:hover p:after {
+  width: 100%;
+  background: #000;
+  transition: 0.2s all ease-in-out;
+}
+
+.market-sale .wrap .inner-content .inner-items a:hover .img-redirect {
+  -webkit-transform: scale(1.06);
+  transform: scale(1.06);
+  transition: all 0.5s ease-in-out;
 }
 
 @media (min-width: 576px) {
@@ -11666,12 +11726,12 @@ section .section-title.no-decoration:after {
   }
 
   .market-sale .wrap .inner-content .inner-items {
-    width: calc(33.33% - 12px);
+    width: calc(33% - 4px);
     margin: 0;
   }
 
   .market-sale .wrap .inner-content .inner-items a .img-redirect:before {
-    padding: 309px 0 0 0;
+    padding: 325px 0 0 0;
   }
 }
 
