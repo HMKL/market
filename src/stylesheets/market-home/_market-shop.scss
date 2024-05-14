@@ -1,0 +1,95 @@
+.market-shop {
+  .wrap {
+    p,
+    h4 {
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+    }
+    .inner {
+      max-width: 1920px;
+      margin: 0 auto;
+      width: calc(100% - 30px);
+      .shop {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        flex-wrap: wrap;
+
+        @media (min-width: $lg) {
+          flex-direction: row;
+          flex-wrap: nowrap;
+        }
+        .items {
+          position: relative;
+          width: calc(50% - 6px);
+
+          @media (min-width: $lg) {
+            width: calc(25% - 8px);
+          }
+          a {
+            text-decoration: none;
+
+            display: block;
+            text-align: center;
+            .image-shop {
+              position: relative;
+              .overlay {
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 0;
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                overflow: hidden;
+                background: #000;
+                opacity: 0.6;
+                transition: 0.2s all ease-in-out;
+                p {
+                  color: #fff;
+                  font-size: 18px;
+                  @media (min-width: $md) {
+                    font-size: 20px;
+                  }
+                  @media (min-width: $lg) {
+                    font-size: 25px;
+                  }
+                }
+              }
+            }
+            .items-about {
+              padding: 15px 0;
+              p {
+                color: #000;
+                font-size: 14px;
+                position: relative;
+                display: inline-block;
+                &:after {
+                  content: "";
+                  position: absolute;
+                  height: 1px;
+                  width: 0;
+                  bottom: 0;
+                  left: 0;
+                  background: #000;
+                  transition: 0.2s all ease-in-out;
+                }
+              }
+            }
+
+            &:hover .items-about p:after {
+              width: 100%;
+
+              transition: 0.2s all ease-in-out;
+            }
+            &:hover .image-shop .overlay {
+              height: 100%;
+              transition: 0.2s all ease-in-out;
+            }
+          }
+        }
+      }
+    }
+  }
+}
