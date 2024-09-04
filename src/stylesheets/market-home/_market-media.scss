@@ -1,0 +1,71 @@
+.market-media {
+  .wrap {
+    padding: 83px 0 0 0;
+    .inner {
+      width: 1176px;
+      max-width: 100%;
+      margin: 0 auto;
+      text-align: center;
+      .stories {
+        color: #000;
+        font-size: 14px;
+        font-family: Poppins, sans-serif;
+        text-decoration: none;
+        position: relative;
+        display: inline-block;
+        padding: 14px 0 0 0;
+        &:after {
+          content: "";
+          position: absolute;
+          width: 100%;
+          height: 1px;
+          background: #000;
+          bottom: 0;
+          left: 0;
+          transform-origin: right;
+          transform: scaleX(0);
+          transition: transform 0.2s ease-in-out;
+        }
+        &:hover:after {
+          transform-origin: left;
+          transform: scaleX(1);
+        }
+      }
+      .swiper {
+        margin-left: 15px;
+        @media (min-width: $md) {
+          margin-left: 0px;
+        }
+        .swiper-wrapper {
+          width: 22%;
+          .swiper-slide {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 86px;
+            width: 100%;
+            .media-img {
+              background-position: center;
+              background-repeat: no-repeat;
+              background-size: cover;
+              position: relative;
+              overflow: hidden;
+              width: 83px;
+              @media (min-width: $lg) {
+                width: 147px;
+              }
+              &:before {
+                content: "";
+                display: block;
+                padding: 83px 0 0 0;
+                @media (min-width: $lg) {
+                  padding: 147px 0 0 0;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

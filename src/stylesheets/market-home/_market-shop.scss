@@ -68,20 +68,21 @@
                 &:after {
                   content: "";
                   position: absolute;
+                  width: 100%;
                   height: 1px;
-                  width: 0;
+                  background: #000;
                   bottom: 0;
                   left: 0;
-                  background: #000;
-                  transition: 0.2s all ease-in-out;
+                  transform-origin: right;
+                  transform: scaleX(0);
+                  transition: transform 0.2s ease-in-out;
                 }
               }
             }
 
             &:hover .items-about p:after {
-              width: 100%;
-
-              transition: 0.2s all ease-in-out;
+              transform-origin: left;
+              transform: scaleX(1);
             }
             &:hover .image-shop .overlay {
               height: 100%;
