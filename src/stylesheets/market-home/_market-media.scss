@@ -1,6 +1,10 @@
 .market-media {
   .wrap {
     padding: 83px 0 0 0;
+    margin: 0 0 0 15px;
+    @media (min-width: $lg) {
+      margin: 0;
+    }
     .inner {
       width: 1176px;
       max-width: 100%;
@@ -32,36 +36,20 @@
         }
       }
       .swiper {
-        margin-left: 15px;
-        @media (min-width: $md) {
-          margin-left: 0px;
-        }
+        width: 100%;
+        height: 100%;
         .swiper-wrapper {
-          width: 22%;
+          // width: 80px;
+          @media (min-width: $md) {
+            width: 110px;
+          }
           .swiper-slide {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 86px;
-            width: 100%;
-            .media-img {
-              background-position: center;
-              background-repeat: no-repeat;
-              background-size: cover;
-              position: relative;
-              overflow: hidden;
-              width: 83px;
-              @media (min-width: $lg) {
-                width: 147px;
-              }
-              &:before {
-                content: "";
-                display: block;
-                padding: 83px 0 0 0;
-                @media (min-width: $lg) {
-                  padding: 147px 0 0 0;
-                }
-              }
+            width: 80px;
+            @media (min-width: $md) {
+              width: 110px;
+            }
+            img {
+              // min-height: 60px;
             }
           }
         }

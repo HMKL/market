@@ -49,18 +49,26 @@ let layoutHandler;
 
 
         var swiperMedia = new Swiper(".mediaSwiper", {
-            slidesPerView: 3,
-            loop: false,
+            // slidesPerView: 3,
+            spaceBetween: 10,
             // freeMode: true,
-            // centeredSlides: true,
             slidesPerView: 'auto',
+            pagination: {
+                clickable: true,
+            },
             breakpoints: {
-
+                // 640: {
+                //     slidesPerView: 2,
+                //     spaceBetween: 20,
+                // },
                 767: {
-                    slidesPerView: 6,
-                    centeredSlides: false,
+                    // slidesPerView: 4,
+                    spaceBetween: 30,
                 },
-
+                1024: {
+                    slidesPerView: 6,
+                    // spaceBetween: 50,
+                },
             },
         });
 
