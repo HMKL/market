@@ -1,5 +1,152 @@
 .market-place {
-  p {
-    color: red;
+  font-family: Poppins, sans-serif;
+  .wrap {
+    background: #e8e8e8;
+    .inner {
+      .text-information {
+        width: calc(100% - 30px);
+        max-width: 1920px;
+        margin: 0 auto;
+        ul {
+          width: 100%;
+          margin: 0;
+          padding: 0;
+          list-style-type: none;
+          text-align: center;
+          li {
+            position: relative;
+            &:after {
+              content: "";
+              position: absolute;
+              width: 100%;
+              height: 1px;
+              background: #000;
+              top: 50%;
+              left: 0;
+            }
+            h2 {
+              margin: 0;
+              display: inline-block;
+              font-size: 21px;
+              font-weight: 400;
+              line-height: 1;
+              color: #000;
+              background-color: #e8e8e8;
+              position: relative;
+              z-index: 1;
+              padding: 0 15px;
+              @media (min-width: $md) {
+                font-size: 28px;
+              }
+            }
+          }
+        }
+      }
+      .market-discounts {
+        width: calc(100% - 30px);
+        max-width: 1920px;
+        margin: 0 auto;
+        background: #d9d4d1;
+        border-radius: 10px;
+        ul {
+          justify-content: space-between;
+          list-style-type: none;
+          margin: 0;
+          padding: 0;
+          display: none;
+          @media (min-width: $lg) {
+            display: flex;
+          }
+          li {
+            width: 33.33%;
+            text-align: center;
+            position: relative;
+            padding: 35px 20px;
+            @media (min-width: $lg) {
+              width: calc(33.33% - 30px);
+            }
+            a {
+              color: #000;
+              display: inline-block;
+              font-size: 28px;
+              font-weight: 400;
+              line-height: 1.2;
+              margin: 0 0 10px;
+              text-decoration: none;
+              &:after {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+              }
+            }
+            p {
+              margin: 0;
+              font-size: 12px;
+              font-weight: 400;
+              letter-spacing: 0.5px;
+              line-height: 1.5;
+              span {
+                color: green;
+                position: relative;
+                font-weight: 900;
+                &:after {
+                  content: "";
+                  position: absolute;
+                  width: 100%;
+                  height: 1px;
+                  background: #000;
+                  bottom: 0;
+                  left: 0;
+                  transform-origin: right;
+                  transform: scaleX(0);
+                  transition: transform 0.2s ease-in-out;
+                }
+              }
+            }
+            &:hover p span:after {
+              transform-origin: left;
+              transform: scaleX(1);
+            }
+          }
+        }
+        .swiper {
+          width: 100%;
+          height: 300px;
+          .swiper-wrapper {
+            .swiper-slide {
+              text-align: center;
+
+              .info-card {
+                padding: 30px 0;
+                a {
+                  color: #000;
+                  display: inline-block;
+                  font-size: 28px;
+                  font-weight: 400;
+                  line-height: 1.2;
+                  margin: 0 0 10px;
+                  font-family: Poppins, sans-serif;
+                  text-decoration: none;
+                  &:after {
+                    content: "";
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                  }
+                }
+              }
+            }
+          }
+          .test {
+            position: relative;
+          }
+        }
+      }
+    }
   }
 }

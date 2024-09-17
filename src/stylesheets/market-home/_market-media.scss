@@ -1,8 +1,9 @@
 .market-media {
   .wrap {
-    padding: 83px 0 0 0;
-    margin: 0 0 0 15px;
-    @media (min-width: $lg) {
+    padding: 83px 0 83px 0;
+    // margin: 0 0 0 15px;
+    position: relative;
+    @media (min-width: $md) {
       margin: 0;
     }
     .inner {
@@ -10,50 +11,81 @@
       max-width: 100%;
       margin: 0 auto;
       text-align: center;
-      .stories {
-        color: #000;
-        font-size: 14px;
-        font-family: Poppins, sans-serif;
-        text-decoration: none;
-        position: relative;
-        display: inline-block;
-        padding: 14px 0 0 0;
-        &:after {
-          content: "";
-          position: absolute;
-          width: 100%;
-          height: 1px;
-          background: #000;
-          bottom: 0;
-          left: 0;
-          transform-origin: right;
-          transform: scaleX(0);
-          transition: transform 0.2s ease-in-out;
-        }
-        &:hover:after {
-          transform-origin: left;
-          transform: scaleX(1);
+      a {
+        &.stories {
+          color: #000;
+          font-size: 14px;
+          font-family: Poppins, sans-serif;
+          text-decoration: none;
+          display: inline-block;
+          padding: 14px 0 0 0;
+          position: relative;
+          &:after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 1px;
+            background: #000;
+            bottom: 0;
+            left: 0;
+            transform-origin: right;
+            transform: scaleX(0);
+            transition: transform 0.2s ease-in-out;
+          }
+          &:hover:after {
+            transform-origin: left;
+            transform: scaleX(1);
+          }
         }
       }
       .swiper {
-        width: 100%;
+        width: calc(100% - 15px);
         height: 100%;
+        margin: 0 0 0 auto;
+        @media (min-width: $md) {
+          width: calc(100% - 30px);
+          margin: 0 auto;
+        }
         .swiper-wrapper {
-          // width: 80px;
-          @media (min-width: $md) {
-            width: 110px;
-          }
           .swiper-slide {
             width: 80px;
+
             @media (min-width: $md) {
               width: 110px;
-            }
-            img {
-              // min-height: 60px;
             }
           }
         }
       }
     }
   }
+  // .view-btn {
+  //   text-align: center;
+  //   a {
+  //     &.stories {
+  //       color: #000;
+  //       font-size: 14px;
+  //       font-family: Poppins, sans-serif;
+  //       text-decoration: none;
+  //       position: relative;
+  //       display: inline-block;
+  //       padding: 14px 0 0 0;
+  //       &:after {
+  //         content: "";
+  //         position: absolute;
+  //         width: 100%;
+  //         height: 1px;
+  //         background: #000;
+  //         bottom: 0;
+  //         left: 0;
+  //         transform-origin: right;
+  //         transform: scaleX(0);
+  //         transition: transform 0.2s ease-in-out;
+  //       }
+  //       &:hover:after {
+  //         transform-origin: left;
+  //         transform: scaleX(1);
+  //       }
+  //     }
+  //   }
+  // }
 }

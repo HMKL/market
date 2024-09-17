@@ -8936,8 +8936,8 @@ section .section-title.no-decoration:after {
 }
 
 .market-media .wrap {
-  padding: 83px 0 0 0;
-  margin: 0 0 0 15px;
+  padding: 83px 0 83px 0;
+  position: relative;
 }
 
 .market-media .wrap .inner {
@@ -8947,17 +8947,17 @@ section .section-title.no-decoration:after {
   text-align: center;
 }
 
-.market-media .wrap .inner .stories {
+.market-media .wrap .inner a.stories {
   color: #000;
   font-size: 14px;
   font-family: Poppins, sans-serif;
   text-decoration: none;
-  position: relative;
   display: inline-block;
   padding: 14px 0 0 0;
+  position: relative;
 }
 
-.market-media .wrap .inner .stories:after {
+.market-media .wrap .inner a.stories:after {
   content: "";
   position: absolute;
   width: 100%;
@@ -8974,7 +8974,7 @@ section .section-title.no-decoration:after {
   transition: transform 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;
 }
 
-.market-media .wrap .inner .stories:hover:after {
+.market-media .wrap .inner a.stories:hover:after {
   -webkit-transform-origin: left;
   transform-origin: left;
   -webkit-transform: scaleX(1);
@@ -8982,16 +8982,182 @@ section .section-title.no-decoration:after {
 }
 
 .market-media .wrap .inner .swiper {
-  width: 100%;
+  width: calc(100% - 15px);
   height: 100%;
+  margin: 0 0 0 auto;
 }
 
 .market-media .wrap .inner .swiper .swiper-wrapper .swiper-slide {
   width: 80px;
 }
 
-.market-place p {
-  color: red;
+.market-place {
+  font-family: Poppins, sans-serif;
+}
+
+.market-place .wrap {
+  background: #e8e8e8;
+}
+
+.market-place .wrap .inner .text-information {
+  width: calc(100% - 30px);
+  max-width: 1920px;
+  margin: 0 auto;
+}
+
+.market-place .wrap .inner .text-information ul {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  text-align: center;
+}
+
+.market-place .wrap .inner .text-information ul li {
+  position: relative;
+}
+
+.market-place .wrap .inner .text-information ul li:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  background: #000;
+  top: 50%;
+  left: 0;
+}
+
+.market-place .wrap .inner .text-information ul li h2,
+.market-place .wrap .inner .text-information ul li .h2 {
+  margin: 0;
+  display: inline-block;
+  font-size: 21px;
+  font-weight: 400;
+  line-height: 1;
+  color: #000;
+  background-color: #e8e8e8;
+  position: relative;
+  z-index: 1;
+  padding: 0 15px;
+}
+
+.market-place .wrap .inner .market-discounts {
+  width: calc(100% - 30px);
+  max-width: 1920px;
+  margin: 0 auto;
+  background: #d9d4d1;
+  border-radius: 10px;
+}
+
+.market-place .wrap .inner .market-discounts ul {
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: none;
+}
+
+.market-place .wrap .inner .market-discounts ul li {
+  width: 33.33%;
+  text-align: center;
+  position: relative;
+  padding: 35px 20px;
+}
+
+.market-place .wrap .inner .market-discounts ul li a {
+  color: #000;
+  display: inline-block;
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 1.2;
+  margin: 0 0 10px;
+  text-decoration: none;
+}
+
+.market-place .wrap .inner .market-discounts ul li a:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.market-place .wrap .inner .market-discounts ul li p {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  line-height: 1.5;
+}
+
+.market-place .wrap .inner .market-discounts ul li p span {
+  color: green;
+  position: relative;
+  font-weight: 900;
+}
+
+.market-place .wrap .inner .market-discounts ul li p span:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  background: #000;
+  bottom: 0;
+  left: 0;
+  -webkit-transform-origin: right;
+  transform-origin: right;
+  -webkit-transform: scaleX(0);
+  transform: scaleX(0);
+  transition: -webkit-transform 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;
+}
+
+.market-place .wrap .inner .market-discounts ul li:hover p span:after {
+  -webkit-transform-origin: left;
+  transform-origin: left;
+  -webkit-transform: scaleX(1);
+  transform: scaleX(1);
+}
+
+.market-place .wrap .inner .market-discounts .swiper {
+  width: 100%;
+  height: 300px;
+}
+
+.market-place .wrap .inner .market-discounts .swiper .swiper-wrapper .swiper-slide {
+  text-align: center;
+}
+
+.market-place .wrap .inner .market-discounts .swiper .swiper-wrapper .swiper-slide .info-card {
+  padding: 30px 0;
+}
+
+.market-place .wrap .inner .market-discounts .swiper .swiper-wrapper .swiper-slide .info-card a {
+  color: #000;
+  display: inline-block;
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 1.2;
+  margin: 0 0 10px;
+  font-family: Poppins, sans-serif;
+  text-decoration: none;
+}
+
+.market-place .wrap .inner .market-discounts .swiper .swiper-wrapper .swiper-slide .info-card a:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.market-place .wrap .inner .market-discounts .swiper .test {
+  position: relative;
 }
 
 @media (min-width: 576px) {
@@ -11948,12 +12114,22 @@ section .section-title.no-decoration:after {
     font-size: 20px;
   }
 
-  .market-media .wrap .inner .swiper .swiper-wrapper {
-    width: 110px;
+  .market-media .wrap {
+    margin: 0;
+  }
+
+  .market-media .wrap .inner .swiper {
+    width: calc(100% - 30px);
+    margin: 0 auto;
   }
 
   .market-media .wrap .inner .swiper .swiper-wrapper .swiper-slide {
     width: 110px;
+  }
+
+  .market-place .wrap .inner .text-information ul li h2,
+  .market-place .wrap .inner .text-information ul li .h2 {
+    font-size: 28px;
   }
 }
 
@@ -13580,8 +13756,14 @@ section .section-title.no-decoration:after {
     font-size: 25px;
   }
 
-  .market-media .wrap {
-    margin: 0;
+  .market-place .wrap .inner .market-discounts ul {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+  }
+
+  .market-place .wrap .inner .market-discounts ul li {
+    width: calc(33.33% - 30px);
   }
 }
 

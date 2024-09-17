@@ -57,20 +57,41 @@ let layoutHandler;
                 clickable: true,
             },
             breakpoints: {
-                // 640: {
-                //     slidesPerView: 2,
-                //     spaceBetween: 20,
-                // },
+
                 767: {
-                    // slidesPerView: 4,
-                    spaceBetween: 30,
+                    // spaceBetween: 30,
+                    slidesPerView: 6,
                 },
                 1024: {
                     slidesPerView: 6,
-                    // spaceBetween: 50,
                 },
             },
         });
+
+
+        var swiperDiscounts = new Swiper(".swiperDiscounts", {
+            speed: 600,
+            pagination: {
+                el: ".swiper-pagination",
+                dynamicBullets: true,
+
+            },
+            slidesPerView: 'auto',
+            initialSlide: 2,
+            speed: 1000,
+            spaceBetween: 32,
+            // loop: true,
+            centeredSlides: true,
+            roundLengths: true,
+            mousewheel: true,
+            grabCursor: true,
+            // autoplay: {
+            //     delay: 3500,
+            //     disableOnInteraction: false,
+            // },
+        });
+
+
 
 
     });
