@@ -9038,7 +9038,7 @@ section .section-title.no-decoration:after {
   background-color: #e8e8e8;
   position: relative;
   z-index: 1;
-  padding: 0 15px;
+  padding: 15px 15px;
 }
 
 .market-place .wrap .inner .market-discounts {
@@ -9125,7 +9125,7 @@ section .section-title.no-decoration:after {
 
 .market-place .wrap .inner .market-discounts .swiper {
   width: 100%;
-  height: 300px;
+  display: block;
 }
 
 .market-place .wrap .inner .market-discounts .swiper .swiper-wrapper .swiper-slide {
@@ -9134,6 +9134,7 @@ section .section-title.no-decoration:after {
 
 .market-place .wrap .inner .market-discounts .swiper .swiper-wrapper .swiper-slide .info-card {
   padding: 30px 0;
+  height: 214px;
 }
 
 .market-place .wrap .inner .market-discounts .swiper .swiper-wrapper .swiper-slide .info-card a {
@@ -9156,8 +9157,31 @@ section .section-title.no-decoration:after {
   height: 100%;
 }
 
-.market-place .wrap .inner .market-discounts .swiper .test {
+.market-place .wrap .inner .market-discounts .swiper .swiper-wrapper .swiper-slide .info-card p {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  line-height: 1.5;
+}
+
+.market-place .wrap .inner .market-discounts .swiper .swiper-wrapper .swiper-slide .info-card p span {
+  color: green;
   position: relative;
+}
+
+.market-place .wrap .inner .market-discounts .swiper .swiper-wrapper .swiper-slide .info-card p span:after {
+  content: "";
+  position: absolute;
+  background: green;
+  height: 1px;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+}
+
+.market-place .wrap .inner .market-discounts .swiper .swiper-pagination .swiper-pagination-bullet {
+  background: #000;
 }
 
 @media (min-width: 576px) {
@@ -13764,6 +13788,10 @@ section .section-title.no-decoration:after {
 
   .market-place .wrap .inner .market-discounts ul li {
     width: calc(33.33% - 30px);
+  }
+
+  .market-place .wrap .inner .market-discounts .swiper {
+    display: none;
   }
 }
 
