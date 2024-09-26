@@ -9184,6 +9184,22 @@ section .section-title.no-decoration:after {
   background: #000;
 }
 
+.market-footer .wrap .inner .accordion-item .mobile-btn {
+  background: green;
+  width: 100%;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.market-footer .wrap .inner .accordion-item .mobile-btn .btn-lines {
+  height: 100%;
+  background: red;
+}
+
 @media (min-width: 576px) {
   .container,
   .container-sm {

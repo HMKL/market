@@ -1,0 +1,18 @@
+.market-footer {
+  .wrap {
+    .inner {
+      .accordion-item {
+        .mobile-btn {
+          background: green;
+          width: 100%;
+          display: flex;
+          justify-content: space-between;
+          .btn-lines {
+            height: 100%;
+            background: red;
+          }
+        }
+      }
+    }
+  }
+}
