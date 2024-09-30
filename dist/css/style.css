@@ -9193,6 +9193,10 @@ section .section-title.no-decoration:after {
   margin: 0 auto;
 }
 
+.market-footer .wrap .inner .accordion {
+  padding: 20px 0 0 0;
+}
+
 .market-footer .wrap .inner .accordion .accordion-item {
   background: transparent;
 }
@@ -9218,6 +9222,10 @@ section .section-title.no-decoration:after {
   color: #000;
 }
 
+.market-footer .wrap .inner .accordion .accordion-item .mobile-btn span {
+  margin: 0 0 0 10px;
+}
+
 .market-footer .wrap .inner .accordion .accordion-item .mobile-btn .btn-lines {
   height: 25px;
   width: 25px;
@@ -9235,6 +9243,7 @@ section .section-title.no-decoration:after {
   -webkit-transform: translate(-50%, -50%) rotate(0deg);
   transform: translate(-50%, -50%) rotate(0deg);
   transition: all 0.3s ease-in-out;
+  margin: 0;
 }
 
 .market-footer .wrap .inner .accordion .accordion-item .mobile-btn.collapsed .btn-lines span {
