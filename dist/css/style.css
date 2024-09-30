@@ -9215,6 +9215,7 @@ section .section-title.no-decoration:after {
   font-size: 12px;
   font-weight: 500;
   text-transform: uppercase;
+  color: #000;
 }
 
 .market-footer .wrap .inner .accordion .accordion-item .mobile-btn .btn-lines {
