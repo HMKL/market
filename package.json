@@ -24,7 +24,7 @@
   },
   "dependencies": {
     "bootstrap": "latest",
-    "jquery": "^3.1.1",
+    "jquery": "latest",
     "sass-mediaqueries": "latest"
   },
   "name": "market",
