@@ -1,4 +1,8 @@
 .market-footer-desktop {
+  display: none;
+  @media (min-width: $md) {
+    display: block;
+  }
   .wrap {
     background: #e8e8e8;
     font-family: Poppins, sans-serif;
@@ -14,28 +18,47 @@
         left: 50%;
         width: 50%;
         transform: translate(-50%, 0);
-
         text-align: center;
         z-index: 1;
+        @media (min-width: $lg) {
+          width: 40%;
+        }
+        @media (min-width: $xl) {
+          width: 25%;
+        }
         &:after {
           content: "";
           position: absolute;
           width: 100%;
           height: 100%;
-          left: -5px;
-          top: -5px;
-          background: #000;
+          left: -7px;
+          top: -7px;
+          background: #d9d4d1;
           z-index: -1;
+          transition: 0.3s all ease-in-out;
         }
-        p {
+
+        &:hover {
+          &:after {
+            top: 7px;
+            left: 7px;
+            transition: 0.3s all ease-in-out;
+          }
+        }
+        a {
           margin: 0;
-          color: #fff;
+          color: #000;
           font-size: 28px;
           line-height: 1;
-          padding: 15px 15px;
-          background: #262f79;
+          background: #949599;
           z-index: 1;
           position: relative;
+          display: block;
+          text-decoration: none;
+          padding: 15px 15px;
+          span {
+            color: #000;
+          }
         }
       }
 
@@ -50,6 +73,68 @@
 
           &:nth-of-type(3) {
             width: 25%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            .content {
+              width: calc(50% - 10px);
+              .drop-content {
+                position: relative;
+                a {
+                  &.currency {
+                    text-decoration: none;
+                    color: #000;
+                    font-size: 12px;
+                    font-weight: 400;
+                    letter-spacing: 0.5px;
+                    display: inline-block;
+                    padding: 15px 0;
+                  }
+                }
+                .list-drop {
+                  position: absolute;
+                  top: 28px;
+                  background: lightgreen;
+                  opacity: 0;
+                  visibility: hidden;
+                  transition: all 0.3s ease-in-out;
+                  width: 100%;
+                  transform: scaleY(0);
+                  transform-origin: top;
+                  &.show {
+                    opacity: 1;
+                    visibility: visible;
+                    transform: scaleY(1);
+                  }
+                }
+              }
+            }
+          }
+          ul {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+            display: flex;
+            flex-direction: column;
+            li {
+              h4 {
+                padding: 15px 0;
+                font-size: 12px;
+                font-weight: 500;
+                text-transform: uppercase;
+                margin: 0;
+                letter-spacing: 0.5px;
+              }
+              a {
+                font-size: 12px;
+                text-decoration: none;
+                color: #000;
+                display: inline-block;
+                margin: 5px 10px 5px 0;
+                padding: 0;
+                position: relative;
+              }
+            }
           }
         }
       }

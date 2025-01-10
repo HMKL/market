@@ -13,7 +13,16 @@
   const getSideBar = document.querySelector('.sidebar');
   const getShadow = document.querySelector('.overlay-opacity');
   const getUl = document.querySelectorAll('.header-left > ul > li');
+  // const getCurrency = document.querySelector('.currency');
+  // const getListDrop = document.querySelector('.list-drop');
 
+  // const showListDrop = () => {
+  //   getCurrency.addEventListener('mouseenter', () => {
+  //     getListDrop.classList.add('show');
+  //   });
+
+  // }
+  // showListDrop();
 
 
 

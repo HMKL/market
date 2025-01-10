@@ -9261,6 +9261,10 @@ section .section-title.no-decoration:after {
   transition: all 0.3s ease-in-out;
 }
 
+.market-footer-desktop {
+  display: none;
+}
+
 .market-footer-desktop .wrap {
   background: #e8e8e8;
   font-family: Poppins, sans-serif;
@@ -9290,21 +9294,34 @@ section .section-title.no-decoration:after {
   position: absolute;
   width: 100%;
   height: 100%;
-  left: -5px;
-  top: -5px;
-  background: #000;
+  left: -7px;
+  top: -7px;
+  background: #d9d4d1;
   z-index: -1;
+  transition: 0.3s all ease-in-out;
 }
 
-.market-footer-desktop .wrap .inner .text-footer p {
+.market-footer-desktop .wrap .inner .text-footer:hover:after {
+  top: 7px;
+  left: 7px;
+  transition: 0.3s all ease-in-out;
+}
+
+.market-footer-desktop .wrap .inner .text-footer a {
   margin: 0;
-  color: #fff;
+  color: #000;
   font-size: 28px;
   line-height: 1;
-  padding: 15px 15px;
-  background: #262f79;
+  background: #949599;
   z-index: 1;
   position: relative;
+  display: block;
+  text-decoration: none;
+  padding: 15px 15px;
+}
+
+.market-footer-desktop .wrap .inner .text-footer a span {
+  color: #000;
 }
 
 .market-footer-desktop .wrap .inner .footer-desktop {
@@ -9326,6 +9343,86 @@ section .section-title.no-decoration:after {
 
 .market-footer-desktop .wrap .inner .footer-desktop .items:nth-of-type(3) {
   width: 25%;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.market-footer-desktop .wrap .inner .footer-desktop .items:nth-of-type(3) .content {
+  width: calc(50% - 10px);
+}
+
+.market-footer-desktop .wrap .inner .footer-desktop .items:nth-of-type(3) .content .drop-content {
+  position: relative;
+}
+
+.market-footer-desktop .wrap .inner .footer-desktop .items:nth-of-type(3) .content .drop-content a.currency {
+  text-decoration: none;
+  color: #000;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  display: inline-block;
+  padding: 15px 0;
+}
+
+.market-footer-desktop .wrap .inner .footer-desktop .items:nth-of-type(3) .content .drop-content .list-drop {
+  position: absolute;
+  top: 28px;
+  background: lightgreen;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease-in-out;
+  width: 100%;
+  -webkit-transform: scaleY(0);
+  transform: scaleY(0);
+  -webkit-transform-origin: top;
+  transform-origin: top;
+}
+
+.market-footer-desktop .wrap .inner .footer-desktop .items:nth-of-type(3) .content .drop-content .list-drop.show {
+  opacity: 1;
+  visibility: visible;
+  -webkit-transform: scaleY(1);
+  transform: scaleY(1);
+}
+
+.market-footer-desktop .wrap .inner .footer-desktop .items ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.market-footer-desktop .wrap .inner .footer-desktop .items ul li h4,
+.market-footer-desktop .wrap .inner .footer-desktop .items ul li .h4 {
+  padding: 15px 0;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  margin: 0;
+  letter-spacing: 0.5px;
+}
+
+.market-footer-desktop .wrap .inner .footer-desktop .items ul li a {
+  font-size: 12px;
+  text-decoration: none;
+  color: #000;
+  display: inline-block;
+  margin: 5px 10px 5px 0;
+  padding: 0;
+  position: relative;
 }
 
 @media (min-width: 576px) {
@@ -12303,6 +12400,10 @@ section .section-title.no-decoration:after {
   .market-footer.mobile {
     display: none;
   }
+
+  .market-footer-desktop {
+    display: block;
+  }
 }
 
 @media only screen and (min-width: 768px) {
@@ -13941,6 +14042,10 @@ section .section-title.no-decoration:after {
   .market-place .wrap .inner .market-discounts .swiper {
     display: none;
   }
+
+  .market-footer-desktop .wrap .inner .text-footer {
+    width: 40%;
+  }
 }
 
 @media only screen and (min-width: 992px) {
@@ -15577,6 +15682,10 @@ section .section-title.no-decoration:after {
 
   .market-sale .wrap .inner-content .inner-items a .img-redirect:before {
     padding: 700px 0 0 0;
+  }
+
+  .market-footer-desktop .wrap .inner .text-footer {
+    width: 25%;
   }
 }
 
