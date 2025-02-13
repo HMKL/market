@@ -69,10 +69,10 @@
         justify-content: space-between;
 
         .items {
-          width: calc(37.5% - 5px);
+          width: calc(37% - 5px);
 
           &:nth-of-type(3) {
-            width: 25%;
+            width: 26%;
             display: flex;
             flex-direction: row;
             justify-content: space-between;

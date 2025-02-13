@@ -9338,11 +9338,11 @@ section .section-title.no-decoration:after {
 }
 
 .market-footer-desktop .wrap .inner .footer-desktop .items {
-  width: calc(37.5% - 5px);
+  width: calc(37% - 5px);
 }
 
 .market-footer-desktop .wrap .inner .footer-desktop .items:nth-of-type(3) {
-  width: 25%;
+  width: 26%;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
