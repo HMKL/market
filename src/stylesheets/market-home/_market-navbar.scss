@@ -303,7 +303,9 @@
           }
           .siderbar-items {
             height: 50%;
-            background: red;
+            background: #fff;
+            display: flex;
+            flex-direction: column;
             .accordion-main {
               background: #fff;
               .item-accordion {
@@ -316,7 +318,7 @@
                   align-items: center;
                   background: #fff;
                   position: relative;
-                  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+                  border-bottom: 1px solid #53a3e1;
                   font-family: "Poppins", sans-serif;
                   span {
                     font-size: 12px;
@@ -348,6 +350,7 @@
                     }
                   }
                   &.collapsed {
+                    border-bottom: 1px solid #37c46f;
                     .lines {
                       background: #37c46f;
                       span {
@@ -362,6 +365,25 @@
                 .accordion-collapse {
                   padding: 0 0 0 15px;
                 }
+              }
+            }
+            .photo-items {
+              display: flex;
+              justify-content: space-between;
+              height: 100%;
+              align-items: center;
+              position: relative;
+              .inner-photo {
+                width: calc(50% - 30px);
+              }
+              .arrow {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                height: 2px;
+                width: 10px;
+                background: red;
               }
             }
           }

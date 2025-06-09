@@ -8358,7 +8358,13 @@ section .section-title.no-decoration:after {
 
 .market-navbar header .main-heading .sidebar .content-sidebar .siderbar-items {
   height: 50%;
-  background: red;
+  background: #fff;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
 }
 
 .market-navbar header .main-heading .sidebar .content-sidebar .siderbar-items .accordion-main {
@@ -8380,7 +8386,7 @@ section .section-title.no-decoration:after {
   align-items: center;
   background: #fff;
   position: relative;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid #53a3e1;
   font-family: "Poppins", sans-serif;
 }
 
@@ -8422,6 +8428,10 @@ section .section-title.no-decoration:after {
   color: #fff;
 }
 
+.market-navbar header .main-heading .sidebar .content-sidebar .siderbar-items .accordion-main .item-accordion .main-button.collapsed {
+  border-bottom: 1px solid #37c46f;
+}
+
 .market-navbar header .main-heading .sidebar .content-sidebar .siderbar-items .accordion-main .item-accordion .main-button.collapsed .lines {
   background: #37c46f;
 }
@@ -8433,6 +8443,35 @@ section .section-title.no-decoration:after {
 
 .market-navbar header .main-heading .sidebar .content-sidebar .siderbar-items .accordion-main .item-accordion .accordion-collapse {
   padding: 0 0 0 15px;
+}
+
+.market-navbar header .main-heading .sidebar .content-sidebar .siderbar-items .photo-items {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  height: 100%;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  position: relative;
+}
+
+.market-navbar header .main-heading .sidebar .content-sidebar .siderbar-items .photo-items .inner-photo {
+  width: calc(50% - 30px);
+}
+
+.market-navbar header .main-heading .sidebar .content-sidebar .siderbar-items .photo-items .arrow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  height: 2px;
+  width: 10px;
+  background: red;
 }
 
 .market-navbar header .main-heading .overlay-opacity {
