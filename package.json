@@ -1,47 +1,48 @@
 {
-  "devDependencies": {
-    "browser-sync": "latest",
-    "del": "^2.2.2",
-    "eslint-config-google": "latest",
-    "gulp": "^3.9.1",
-    "gulp-autoprefixer": "^3.1.1",
-    "gulp-concat": "^2.6.1",
-    "gulp-eslint": "latest",
-    "gulp-group-css-media-queries": "^1.2.0",
-    "gulp-load-plugins": "^1.5.0",
-    "gulp-nunjucks-render": "^2.0.0",
-    "gulp-sass": "^3.1.0",
-    "gulp-sourcemaps": "^2.4.1",
-    "gulp-useref": "^3.1.2",
-    "run-sequence": "^1.2.2"
-  },
-  "engines": {
-    "node": ">=0.12"
-  },
   "private": true,
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "devDependencies": {
+    "browser-sync": "^3.0.3",
+    "css-mqpacker": "^7.0.0",
+    "eslint-config-google": "^0.14.0",
+    "gulp": "^5.0.0",
+    "autoprefixer": "^10.4.19",
+    "gulp-concat": "^2.6.1",
+    "gulp-eslint-new": "^2.0.0",
+    "gulp-load-plugins": "^2.0.8",
+    "gulp-nunjucks-render": "^2.2.3",
+    "gulp-postcss": "^10.0.0",
+    "gulp-sass": "^5.1.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "gulp-useref": "^5.0.0",
+    "sass": "^1.83.0"
+  },
+  "dependencies": {
+    "bootstrap": "^5.3.3",
+    "jquery": "^3.7.1",
+    "sass-mediaqueries": "^1.6.1"
+  },
   "eslintConfig": {
     "extends": "google"
   },
-  "dependencies": {
-    "bootstrap": "latest",
-    "jquery": "latest",
-    "sass-mediaqueries": "latest"
-  },
-  "name": "market",
+  "browserslist": [
+    ">= 1%",
+    "last 2 versions",
+    "not dead",
+    "Chrome >= 34",
+    "Firefox >= 30",
+    "Safari >= 7",
+    "Explorer >= 10"
+  ],
+  "name": "gulp-remastered",
+  "description": "A front-end template that helps you build fast, modern mobile web apps.",
   "version": "1.0.0",
   "main": "gulpfile.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/HMKL/market.git"
-  },
   "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/HMKL/market/issues"
-  },
-  "homepage": "https://github.com/HMKL/market#readme",
-  "description": ""
+  "license": "ISC"
 }
