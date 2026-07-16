@@ -14,7 +14,7 @@ const mqpacker = require('css-mqpacker');
 const $ = gulpLoadPlugins();
 const reload = browserSync.reload;
 
-// Automatically verify and create missing asset folders to prevent Gulp crashing
+// Automatically check and create necessary folders if they don't exist
 function ensureDirsExist(cb) {
     const requiredDirs = ['src/fonts', 'src/images'];
     requiredDirs.forEach(dir => {
@@ -46,7 +46,7 @@ function styles() {
         .pipe(browserSync.stream());
 }
 
-// Process JS files and return the stream
+// Process JS files and return the stream.
 function scripts() {
     return gulp.src('src/scripts/**/*.js')
         .pipe($.concat('main.js'))
@@ -67,12 +67,13 @@ function html() {
         .pipe(nunjacks({
             path: ['src']
         }))
-        .pipe(useref())
+        // useref compiles only assets inside blocks, skipping images
+        .pipe(useref({ searchPath: ['.tmp', 'src', '.'] }))
         .pipe(gulp.dest('dist'));
 }
 
 // Copy all files at the root level (src)
-// FIXED: Removed the wildcard asterisks (*) so your images and fonts copy correctly
+// FIXED: Removed the asterisks (*) so Gulp recreates 'images/' and 'fonts/' subdirectories correctly
 function copy() {
     return gulp.src([
         'src/fonts/**/*',
@@ -80,7 +81,7 @@ function copy() {
         'src/manifest.json',
         'src/manifest.webapp',
         'src/less/**/*'
-    ], { dot: true, allowEmpty: true })
+    ], { base: 'src', dot: true, allowEmpty: true }) // Added 'base: src' to preserve the exact folder hierarchy
         .pipe(gulp.dest('dist'));
 }
 
@@ -111,6 +112,7 @@ function watchFiles() {
 const serve = gulp.series(ensureDirsExist, clean, gulp.parallel(styles, scripts, html, copy), watchFiles);
 const build = gulp.series(ensureDirsExist, clean, gulp.parallel(styles, scripts, html, copy));
 
+// Export tasks
 exports.styles = styles;
 exports.scripts = scripts;
 exports.lint = lint;
