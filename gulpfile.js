@@ -33,6 +33,7 @@ function styles() {
         'src/stylesheets/**/*.less'
     ])
         .pipe($.sourcemaps.init())
+        // Compiler settings to silence deprecations from Bootstrap & internal Gulp wrappers
         .pipe(sass.sync({
             quietDeps: true,
             silenceDeprecations: ['legacy-js-api', 'import', 'global-builtin', 'color-functions', 'if-function']
@@ -67,13 +68,13 @@ function html() {
         .pipe(nunjacks({
             path: ['src']
         }))
-        // useref compiles only assets inside blocks, skipping images
-        .pipe(useref({ searchPath: ['.tmp', 'src', '.'] }))
+        .pipe(useref())
         .pipe(gulp.dest('dist'));
 }
 
 // Copy all files at the root level (src)
-// FIXED: Removed the asterisks (*) so Gulp recreates 'images/' and 'fonts/' subdirectories correctly
+// FIXED: 'encoding: false' prevents Gulp from reading images as text (fixes the corruption)
+// FIXED: 'base: "src"' ensures that your "images/" and "fonts/" folders maintain their directory structure
 function copy() {
     return gulp.src([
         'src/fonts/**/*',
@@ -81,7 +82,12 @@ function copy() {
         'src/manifest.json',
         'src/manifest.webapp',
         'src/less/**/*'
-    ], { base: 'src', dot: true, allowEmpty: true }) // Added 'base: src' to preserve the exact folder hierarchy
+    ], { 
+        base: 'src', 
+        dot: true, 
+        allowEmpty: true,
+        encoding: false // <--- CRITICAL: Tells Gulp to copy files as raw binary (images won't corrupt!)
+    })
         .pipe(gulp.dest('dist'));
 }
 
@@ -108,11 +114,11 @@ function watchFiles() {
     gulp.watch('src/fonts/**/*', gulp.series(copy, (cb) => { reload(); cb(); }));
 }
 
-// Define complex tasks (Ensuring directories exist first)
+// Define complex tasks (Ensuring folders exist and cleans old corrupted flat files first)
 const serve = gulp.series(ensureDirsExist, clean, gulp.parallel(styles, scripts, html, copy), watchFiles);
 const build = gulp.series(ensureDirsExist, clean, gulp.parallel(styles, scripts, html, copy));
 
-// Export tasks
+// Export individual tasks
 exports.styles = styles;
 exports.scripts = scripts;
 exports.lint = lint;
