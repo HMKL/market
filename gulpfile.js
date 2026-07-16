@@ -14,7 +14,7 @@ const mqpacker = require('css-mqpacker');
 const $ = gulpLoadPlugins();
 const reload = browserSync.reload;
 
-// NEW: Automatically check and create necessary folders if they don't exist
+// Automatically check and create necessary folders if they don't exist
 function ensureDirsExist(cb) {
     const requiredDirs = ['src/fonts', 'src/images'];
     requiredDirs.forEach(dir => {
@@ -33,14 +33,13 @@ function styles() {
         'src/stylesheets/**/*.less'
     ])
         .pipe($.sourcemaps.init())
-        // Compiler settings to silence deprecations from Bootstrap & internal Gulp wrappers
         .pipe(sass.sync({
             quietDeps: true,
             silenceDeprecations: ['legacy-js-api', 'import', 'global-builtin', 'color-functions', 'if-function']
         }).on('error', sass.logError))
         .pipe(postcss([
             autoprefixer(),
-            mqpacker({ sort: true }) // Groups media queries seamlessly
+            mqpacker({ sort: true }) 
         ]))
         .pipe($.sourcemaps.write('./'))
         .pipe(gulp.dest('dist/css'))
@@ -68,11 +67,13 @@ function html() {
         .pipe(nunjacks({
             path: ['src']
         }))
-        .pipe(useref())
+        // useref compiles only assets inside blocks, skipping images
+        .pipe(useref({ searchPath: ['.tmp', 'src', '.'] }))
         .pipe(gulp.dest('dist'));
 }
 
 // Copy all files at the root level (src)
+// FIXED: Removed the asterisks (*) so Gulp recreates 'images/' and 'fonts/' subdirectories correctly
 function copy() {
     return gulp.src([
         'src/fonts/**/*',
@@ -80,11 +81,11 @@ function copy() {
         'src/manifest.json',
         'src/manifest.webapp',
         'src/less/**/*'
-    ], { dot: true, allowEmpty: true })
+    ], { base: 'src', dot: true, allowEmpty: true }) // Added 'base: src' to preserve the exact folder hierarchy
         .pipe(gulp.dest('dist'));
 }
 
-// Clean output directory using native Node.js (Only runs if manually triggered via 'npx gulp clean')
+// Clean output directory using native Node.js
 function clean(cb) {
     fs.rmSync('dist', { recursive: true, force: true });
     cb();
@@ -107,13 +108,11 @@ function watchFiles() {
     gulp.watch('src/fonts/**/*', gulp.series(copy, (cb) => { reload(); cb(); }));
 }
 
-// Define complex tasks (CLEAN EXCLUDED - dist folder is preserved)
-// Added 'ensureDirsExist' at the beginning of the sequence to prevent missing folder errors!
-const serve = gulp.series(ensureDirsExist, gulp.parallel(styles, scripts, html, copy), watchFiles);
-const build = gulp.series(ensureDirsExist, gulp.parallel(styles, scripts, html, copy));
+// Define complex tasks (Ensuring directories exist first)
+const serve = gulp.series(ensureDirsExist, clean, gulp.parallel(styles, scripts, html, copy), watchFiles);
+const build = gulp.series(ensureDirsExist, clean, gulp.parallel(styles, scripts, html, copy));
 
 // Export tasks
-exports.ensureDirs = ensureDirsExist;
 exports.styles = styles;
 exports.scripts = scripts;
 exports.lint = lint;
