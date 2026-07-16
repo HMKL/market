@@ -50,7 +50,7 @@ let layoutHandler;
 
         var swiperMedia = new Swiper(".mediaSwiper", {
             // slidesPerView: 3,
-            spaceBetween: 10,
+            spaceBetween: 30,
             // freeMode: true,
             slidesPerView: 'auto',
             pagination: {
@@ -85,10 +85,10 @@ let layoutHandler;
             roundLengths: true,
             mousewheel: true,
             grabCursor: true,
-            // autoplay: {
-            //     delay: 3500,
-            //     disableOnInteraction: false,
-            // },
+            autoplay: {
+                delay: 3500,
+                disableOnInteraction: false,
+            },
         });
 
 
