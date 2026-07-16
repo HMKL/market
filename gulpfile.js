@@ -1,103 +1,127 @@
 const gulp = require('gulp');
-const browserSync = require('browser-sync');
-const sass = require('gulp-sass');
+const browserSync = require('browser-sync').create();
+const sass = require('gulp-sass')(require('sass'));
 const useref = require('gulp-useref');
 const gulpLoadPlugins = require('gulp-load-plugins');
 const nunjacks = require('gulp-nunjucks-render');
-const gcmq = require('gulp-group-css-media-queries');
-const runSequence = require('run-sequence');
-const del = require('del');
+const fs = require('fs');
+
+// PostCSS & plugins
+const postcss = require('gulp-postcss');
+const autoprefixer = require('autoprefixer');
+const mqpacker = require('css-mqpacker');
 
 const $ = gulpLoadPlugins();
 const reload = browserSync.reload;
 
+// NEW: Automatically check and create necessary folders if they don't exist
+function ensureDirsExist(cb) {
+    const requiredDirs = ['src/fonts', 'src/images'];
+    requiredDirs.forEach(dir => {
+        if (!fs.existsSync(dir)) {
+            fs.mkdirSync(dir, { recursive: true });
+            console.log(`Created missing directory: ${dir}`);
+        }
+    });
+    cb();
+}
+
 // Compile sass into CSS & auto-inject into browsers
-gulp.task('styles', function () {
-    const AUTOPREFIXER_BROWSERS = [
-        'ie >= 10',
-        'ie_mob >= 10',
-        'ff >= 30',
-        'chrome >= 34',
-        'safari >= 7',
-        'opera >= 23',
-        'ios >= 7',
-        'android >= 4.4',
-        'bb >= 10'
-    ];
+function styles() {
     return gulp.src([
         'src/stylesheets/**/*.scss',
         'src/stylesheets/**/*.less'
     ])
-        .pipe(sass().on('error', sass.logError))
         .pipe($.sourcemaps.init())
-        .pipe($.autoprefixer(AUTOPREFIXER_BROWSERS))
-        .pipe(gcmq())
-        .pipe(gulp.dest('dist/css'))
+        // Compiler settings to silence deprecations from Bootstrap & internal Gulp wrappers
+        .pipe(sass.sync({
+            quietDeps: true,
+            silenceDeprecations: ['legacy-js-api', 'import', 'global-builtin', 'color-functions', 'if-function']
+        }).on('error', sass.logError))
+        .pipe(postcss([
+            autoprefixer(),
+            mqpacker({ sort: true }) // Groups media queries seamlessly
+        ]))
         .pipe($.sourcemaps.write('./'))
+        .pipe(gulp.dest('dist/css'))
         .pipe(browserSync.stream());
-});
+}
 
 // Process JS files and return the stream.
-gulp.task('scripts', function () {
+function scripts() {
     return gulp.src('src/scripts/**/*.js')
         .pipe($.concat('main.js'))
         .pipe(gulp.dest('dist/js'))
         .pipe(browserSync.stream());
-});
+}
 
 // Lint JavaScript
-gulp.task('lint', function () {
-    gulp.src(['src/scripts/**/*.js', '!node_modules/**'])
-        .pipe($.eslint())
-        .pipe($.eslint.format())
-});
+function lint() {
+    return gulp.src(['src/scripts/**/*.js', '!node_modules/**'])
+        .pipe($.eslintNew ? $.eslintNew() : $.eslint())
+        .pipe($.eslintNew ? $.eslintNew.format() : $.eslint.format());
+}
 
 // Html parse
-gulp.task('html', function () {
+function html() {
     return gulp.src(['src/*.html', '!src/basic.html'])
         .pipe(nunjacks({
             path: ['src']
         }))
         .pipe(useref())
         .pipe(gulp.dest('dist'));
-});
+}
 
 // Copy all files at the root level (src)
-gulp.task('copy', function () {
-    gulp.src([
-        'src/*fonts/**/*',
-        'src/*images/**/*',
+function copy() {
+    return gulp.src([
+        'src/fonts/**/*',
+        'src/images/**/*',
         'src/manifest.json',
         'src/manifest.webapp',
-        'src/*less/**/*'
-    ], {dot: true}).pipe(gulp.dest('dist'))
-});
+        'src/less/**/*'
+    ], { dot: true, allowEmpty: true })
+        .pipe(gulp.dest('dist'));
+}
 
-// Clean output directory
-gulp.task('clean', function () {
-    return del(['dist/*'], {dot: true});
-});
+// Clean output directory using native Node.js (Only runs if manually triggered via 'npx gulp clean')
+function clean(cb) {
+    fs.rmSync('dist', { recursive: true, force: true });
+    cb();
+}
 
-// Static Server + watching scss/js/html files
-gulp.task('serve', ['styles', 'scripts', 'html', 'copy'], function () {
-    browserSync({
+// Static Server + watching files
+function watchFiles() {
+    browserSync.init({
         notify: false,
         open: false,
         logPrefix: 'Gulp',
         server: ['dist'],
         port: 4200
     });
-    gulp.watch('src/**/*.scss', ['styles']);
-    gulp.watch('src/scripts/**/*.js', ['scripts']);
-    gulp.watch('src/**/*.html', ['html', reload]);
-    gulp.watch(['src/images/**/*'], ['copy', reload]);
-    gulp.watch(['src/fonts/**/*'], ['copy', reload]);
-});
 
-gulp.task('build', ['clean'], function (cb) {
-    runSequence('styles', 'scripts', 'html', 'copy', cb);
-});
+    gulp.watch('src/**/*.scss', styles);
+    gulp.watch('src/scripts/**/*.js', scripts);
+    gulp.watch('src/**/*.html', gulp.series(html, (cb) => { reload(); cb(); }));
+    gulp.watch('src/images/**/*', gulp.series(copy, (cb) => { reload(); cb(); }));
+    gulp.watch('src/fonts/**/*', gulp.series(copy, (cb) => { reload(); cb(); }));
+}
 
-gulp.task('default', ['clean'], function (cb) {
-    runSequence('serve', cb);
-});
+// Define complex tasks (CLEAN EXCLUDED - dist folder is preserved)
+// Added 'ensureDirsExist' at the beginning of the sequence to prevent missing folder errors!
+const serve = gulp.series(ensureDirsExist, gulp.parallel(styles, scripts, html, copy), watchFiles);
+const build = gulp.series(ensureDirsExist, gulp.parallel(styles, scripts, html, copy));
+
+// Export tasks
+exports.ensureDirs = ensureDirsExist;
+exports.styles = styles;
+exports.scripts = scripts;
+exports.lint = lint;
+exports.html = html;
+exports.copy = copy;
+exports.clean = clean;
+
+// Named public tasks
+exports.serve = serve;
+exports.build = build;
+exports.default = serve;
